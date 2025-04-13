@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.dto.CurrencyInfoDTO;
+import com.example.dto.UpdateCurrencyRequest;
 import com.example.model.CurrencyMap;
 import com.example.service.CoindeskService;
 import java.util.List;
@@ -78,14 +79,14 @@ public class CoindeskController {
    * 修改指定幣別的中文名稱。
    *
    * @param currency    幣別 ID（如：bitcoin）
-   * @param chineseName 要更新的中文名稱
+   * @param request     更新幣別對應物件，包含中文名稱
    * @return 更新後的幣別對應資料
    */
   @PutMapping("/currencies/{currency}")
   public ResponseEntity<CurrencyMap> updateCurrency(
       @PathVariable String currency,
-      @RequestBody @Valid String chineseName) {
-    return ResponseEntity.ok(coindeskService.update(currency, chineseName));
+      @RequestBody @Valid UpdateCurrencyRequest request) {
+    return ResponseEntity.ok(coindeskService.update(currency, request.getChineseName()));
   }
 
   /**

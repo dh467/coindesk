@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "658637e0-833e-4a4f-84bc-2ba6fbd22f30",
+		"name": "Coindesk API Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16952856"
+	},
+	"item": [
+		{
+			"name": "查詢指定幣別對應表資料",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/coindesk/currencies/bitcoin",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"coindesk",
+						"currencies",
+						"bitcoin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增幣別對應資料",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"currency\": \"binancecoin\",\r\n    \"chineseName\": \"幣安幣\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/coindesk/currencies",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"coindesk",
+						"currencies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "更新幣別對應資料",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"chineseName\": \"比特幣（更新）\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/coindesk/currencies/bitcoin",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"coindesk",
+						"currencies",
+						"bitcoin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除幣別對應資料",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/coindesk/currencies/bitcoin",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"coindesk",
+						"currencies",
+						"bitcoin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "取得 Coingecko 原始資料",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/coindesk/coingecko/raw",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"coindesk",
+						"coingecko",
+						"raw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "取得 Coingecko 轉換後幣別資料",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/coindesk/currencies",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"coindesk",
+						"currencies"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}

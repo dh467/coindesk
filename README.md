@@ -57,23 +57,9 @@
 201 Created
 ```
 
-#### 🟡 更新幣別（PUT `/api/v1/coindesk/currencies/{currency}`）
+📄 完整 API 規格請參見 [`API_SPEC.md`](./API_SPEC.md)
 
-**Request Body**：
-```json
-{
-  "chineseName": "比特幣（更新）"
-}
-```
-
-**成功時回傳**：
-```json
-{
-  "currency": "bitcoin",
-  "chineseName": "比特幣（更新）",
-  "createAt": "2025-04-12T08:00:00"
-}
-```
+📦 附上 Postman 匯出檔：[`coindesk_postman_collection.json`](./coindesk_postman_collection.json)  
 
 ## 💾 資料表建立語法（H2）
 
@@ -81,7 +67,8 @@
 CREATE TABLE currency_map (
   currency VARCHAR(50) PRIMARY KEY,
   chinese_name VARCHAR(50) NOT NULL,
-  create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  create_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  update_at TIMESTAMP
 );
 ```
 
@@ -89,6 +76,7 @@ CREATE TABLE currency_map (
 > - `currency`：幣別代號，主鍵
 > - `chinese_name`：中文名稱，不可為 NULL
 > - `create_at`：建立時間 (此欄位僅用於記錄，API 不開放修改)
+> - `update_at`：更新時間 
 
 ## 🧪 單元測試說明
 

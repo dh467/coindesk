@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name = "currency_map")
@@ -29,6 +30,11 @@ public class CurrencyMap {
   @Column(name = "create_at", updatable = false)
   @CreationTimestamp
   private LocalDateTime createAt;
+
+  @JsonFormat(pattern = "yyyy/MM/dd HH:mm:ss")
+  @Column(name = "update_at")
+  @UpdateTimestamp
+  private LocalDateTime updateAt;
 
   public CurrencyMap() {
   }
@@ -60,5 +66,13 @@ public class CurrencyMap {
 
   public void setCreateAt(LocalDateTime createAt) {
     this.createAt = createAt;
+  }
+
+  public LocalDateTime getUpdateAt() {
+    return updateAt;
+  }
+
+  public void setUpdateAt(LocalDateTime updateAt) {
+    this.updateAt = updateAt;
   }
 }
