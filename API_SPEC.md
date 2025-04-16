@@ -14,6 +14,10 @@
 - **URL**：`/api/v1/coindesk/currencies/{currency}`
 - **描述**：查詢指定幣別與其中文名稱對應表
 
+| 參數名稱   | 型態        | 是否必填   | 說明                |
+|:-----------|:------------|:-----------|:--------------------|
+| currency   | Path String | 是         | 指定要查詢的幣別 ID |
+
 #### 回應範例：
 ```json
 [
@@ -34,6 +38,11 @@
 - **Method**：POST
 - **URL**：`/api/v1/coindesk/currencies`
 - **描述**：新增幣別與中文名稱的對應資料
+
+| 參數名稱    | 型態   | 是否必填   | 說明                        |
+|:------------|:-------|:-----------|:----------------------------|
+| currency    | String | 是         | 幣別英文代號（如：bitcoin） |
+| chineseName | String | 是         | 幣別中文名稱（如：比特幣）  |
 
 #### Request Body：
 ```json
@@ -66,6 +75,11 @@
 - **URL**：`/api/v1/coindesk/currencies/{currency}`
 - **描述**：更新指定幣別的中文名稱
 
+| 參數名稱    | 型態        | 是否必填   | 說明                 |
+|:------------|:------------|:-----------|:---------------------|
+| currency    | Path String | 是         | 指定要更新的幣別 ID  |
+| chineseName | String      | 是         | 更新後的幣別中文名稱 |
+
 #### Request Body：
 ```json
 {
@@ -96,6 +110,10 @@
 - **URL**：`/api/v1/coindesk/currencies/{currency}`
 - **描述**：刪除指定幣別資料
 
+| 參數名稱   | 型態        | 是否必填   | 說明                |
+|:-----------|:------------|:-----------|:--------------------|
+| currency   | Path String | 是         | 指定要刪除的幣別 ID |
+
 - **成功回應**：204 No Content
 - **錯誤情境**：
   - 404 Not Found：幣別不存在
@@ -107,6 +125,8 @@
 - **Method**：GET
 - **URL**：`/api/v1/coindesk/coingecko/raw`
 - **描述**：查詢 Coingecko API 回傳的原始 JSON 幣價資訊
+
+此 API 無需傳入參數。
 
 #### 回應範例（節錄）：
 ```json
@@ -132,6 +152,8 @@
 - **Method**：GET
 - **URL**：`/api/v1/coindesk/currencies`
 - **描述**：查詢本地資料庫中所有幣別資訊
+
+此 API 無需傳入參數。
 
 #### 回應範例：
 ```json
